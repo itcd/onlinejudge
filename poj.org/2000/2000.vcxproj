@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{064E9350-6440-4E2E-872B-FA13D0481832}</ProjectGuid>
+    <ProjectGuid>{23AEDE08-DC0B-4FCF-AD66-4428BEBE4167}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>pojorg</RootNamespace>
+    <RootNamespace>My2000</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="2000.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
