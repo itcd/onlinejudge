@@ -30,14 +30,11 @@ int main()
 		{
 			sum += (s[i] - '0') * (power[len-i] - 1);
 		}
-		if (sum > 0)
-		{
-			cout<<sum<<endl;
-		} 
-		else
+		if (sum == 0)
 		{
 			break;
 		}
+		cout<<sum<<endl;
 		cin>>s;
 	}
 	return 0;
