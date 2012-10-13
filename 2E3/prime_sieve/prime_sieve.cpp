@@ -4,8 +4,8 @@
 #include <stack>
 using namespace std;
 
-//#define N 1000000000				// size of sieve used 
-#define N LONG_MAX / 2				// size of sieve used 
+//#define N 1000000000				// size of sieve used
+#define N LONG_MAX / 2				// size of sieve used
 #define SIZE ((N+31)/32)				//32 bits per integer hard coded
 int sieve[SIZE];							//array of bits
 
@@ -39,8 +39,6 @@ int main(){
 			prime_number++;
 		} while ((sieve[prime_number/32] & (1 << (prime_number % 32))) == 0);
 	}
-
-	auto t2 = clock();
 
 	cout<<hex<<sieve[0]<<endl;
 	cout<<hex<<sieve[1]<<endl;
@@ -81,6 +79,19 @@ int main(){
 		s.pop();
 	}
 	cout<<endl;
+
+	count = 0;
+	for (int i=0; i<n; i++)
+	{
+		if ((sieve[i/32] & (1 << (i % 32))) > 0)
+		{
+			count++;
+		}
+	}
+
+	cout<<"Number of primes less than "<<n<<" = "<<count<<endl;
+
+	auto t2 = clock();
 
 	cout<<"It took "<<t2-t1<<" ticks i.e. "<<(t2-t1)/(float)CLOCKS_PER_SEC<<" seconds."<<endl;
 
