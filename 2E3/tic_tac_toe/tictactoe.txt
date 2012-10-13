@@ -1,0 +1,172 @@
+
+#include <iostream>
+
+using namespace std;
+
+enum State
+{
+	STATE_EMPTY		= -1,
+	STATE_PLAYER_0	= 0,
+	STATE_PLAYER_1	= 1
+};
+
+void printBoard(int* board)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (board[i*3 + j] == 0)
+			{
+				cout <<"O ";
+			}
+			
+			else if(board[i*3 + j] == 1)
+			{
+				cout <<"X ";
+			}
+			else
+			{
+				cout <<i*3 + j<<" ";
+			}
+		}
+		cout << endl;
+	}
+}
+
+bool makeMove(int player, int move, int* board)
+{
+	if (player < 0 || player > 1)
+	{
+		return false;
+	}
+
+	if (move < 0 || move > 8)
+	{
+		return false;
+	}
+
+	if (board[move] != STATE_EMPTY)
+	{
+		return false;
+	}
+
+	board[move] = player;
+
+	return true;
+}
+
+bool checkWin(int player, int* board)
+{
+	for (int i=0; i < 3; i++)
+	{
+		bool win = true;
+		for (int j=0; j < 3; j++)
+		{
+			if(board[i*3+j] != player)
+			{
+				win = false;
+				break;
+			}
+		}
+		if (win)
+		{
+			return true;
+		}
+
+		win = true;
+		for (int j=0; j < 3; j++)
+		{
+			if(board[j*3+i] != player)
+			{
+				win = false;
+				break;
+			}
+		}
+		if (win)
+		{
+			return true;
+		}
+	}
+
+	bool win = true;
+	for (int i=0; i < 3; i++)
+	{
+		if (board[i*3+i] != player)
+		{
+			win = false;
+			break;
+		}
+	}
+
+	if (win)
+	{
+		return true;
+	}
+
+	win = true;
+	for (int i=0; i < 3; i++)
+	{
+		if (board[(2-i)*3+i] != player)
+		{
+			win = false;
+			break;
+		}
+	}
+
+	if (win)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void main()
+{
+	int boards[9];
+	for (int i=0; i<9; i++)
+	{
+		boards[i] = STATE_EMPTY;
+	}
+
+	int count = 0;
+	while (true)
+	{
+		for (int player = 0; player < 2;)
+		{
+			printBoard(boards);
+
+			if (count == 9)
+			{
+				cout<<"Draw game."<<endl;
+				return;
+			}
+
+			int move = 0;
+			cout<<"Player"<<player<<" move : ";
+			cin>>move;
+			cout<<endl;
+
+			bool moveResult = makeMove(player,move,boards);
+			if (moveResult)
+			{
+				if(checkWin(player,boards))
+				{
+					printBoard(boards);
+					cout<<"Congratulation, player"<<player<<" wins!"<<endl;
+					return;
+				}
+				else
+				{
+					count++;
+					player++;
+				}
+			}
+			else
+			{
+				cout<<"Invalid move, please repeat!"<<endl;
+			}
+		}
+	}
+}
