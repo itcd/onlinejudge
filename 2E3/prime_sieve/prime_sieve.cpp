@@ -86,8 +86,10 @@ int main(){
 		if ((sieve[i/32] & (1 << (i % 32))) > 0)
 		{
 			count++;
+			//cout<<i<<"\t";
 		}
 	}
+	//cout<<endl;
 
 	cout<<"Number of primes less than "<<n<<" = "<<count<<endl;
 
