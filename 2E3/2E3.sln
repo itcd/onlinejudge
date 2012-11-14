@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "prime_sieve_2", "prime_siev
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "float_to_int", "float_to_int\float_to_int.vcxproj", "{90DA23AB-42FF-45AF-9EB7-7D7085934A74}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "npc", "npc\npc.vcxproj", "{46F84ECF-E81C-4A8C-BE47-AB00B6E41856}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pointer_arithmetic", "pointer_arithmetic\pointer_arithmetic.vcxproj", "{DF77BA18-36B2-4C05-AE32-79C6293A9A25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +35,14 @@ Global
 		{90DA23AB-42FF-45AF-9EB7-7D7085934A74}.Debug|Win32.Build.0 = Debug|Win32
 		{90DA23AB-42FF-45AF-9EB7-7D7085934A74}.Release|Win32.ActiveCfg = Release|Win32
 		{90DA23AB-42FF-45AF-9EB7-7D7085934A74}.Release|Win32.Build.0 = Release|Win32
+		{46F84ECF-E81C-4A8C-BE47-AB00B6E41856}.Debug|Win32.ActiveCfg = Debug|Win32
+		{46F84ECF-E81C-4A8C-BE47-AB00B6E41856}.Debug|Win32.Build.0 = Debug|Win32
+		{46F84ECF-E81C-4A8C-BE47-AB00B6E41856}.Release|Win32.ActiveCfg = Release|Win32
+		{46F84ECF-E81C-4A8C-BE47-AB00B6E41856}.Release|Win32.Build.0 = Release|Win32
+		{DF77BA18-36B2-4C05-AE32-79C6293A9A25}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DF77BA18-36B2-4C05-AE32-79C6293A9A25}.Debug|Win32.Build.0 = Debug|Win32
+		{DF77BA18-36B2-4C05-AE32-79C6293A9A25}.Release|Win32.ActiveCfg = Release|Win32
+		{DF77BA18-36B2-4C05-AE32-79C6293A9A25}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
