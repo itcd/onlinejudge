@@ -42,11 +42,7 @@ void studentList::add(student*data){
 			current = current->next;
 		}
 		data->next = current->next;
-		if(current->next == head){
-			head = current->next = data;
-		}else{
-			current->next = data;
-		}
+		current->next = data;
 	}
 }
 
