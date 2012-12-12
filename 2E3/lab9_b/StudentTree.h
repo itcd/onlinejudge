@@ -20,7 +20,7 @@ public:
 	{
 		if (root)
 		{
-			deleteNode(root);
+			deleteNodes(root);
 			cout<<"Tree deleted."<<endl;
 			root = NULL;
 		}
@@ -82,18 +82,6 @@ public:
 		write(root, out);
 	}
 
-	StudentNode* FindStudent (string f, string l)
-	{
-		StudentNode s;
-		s.firstName = f;
-		s.lastName = l;
-		numberOfComparisons = 0;
-		return find(root, s);
-	}
-
-private:
-	StudentNode *root;				// head of list
-
 	void write(StudentNode *p, ofstream &out)
 	{
 		if (p)
@@ -110,20 +98,29 @@ private:
 		}
 	}
 
-	StudentNode *find(StudentNode *current, StudentNode &target)
+	StudentNode* FindStudent (string f, string l)
+	{
+		StudentNode s;
+		s.firstName = f;
+		s.lastName = l;
+		numberOfComparisons = 0;
+		return FindStudent(root, s);
+	}
+
+	StudentNode *FindStudent(StudentNode *current, StudentNode &target)
 	{
 		if (current)
 		{
 			numberOfComparisons++;
 			if (target.cmp(current) < 0)
 			{
-				return find(current->left, target);
+				return FindStudent(current->left, target);
 			} 
 			else
 			{
 				if (target.cmp(current) > 0)
 				{
-					return find(current->right, target);
+					return FindStudent(current->right, target);
 				} 
 				else
 				{
@@ -140,12 +137,15 @@ private:
 		}
 	}
 
-	void deleteNode(StudentNode *current)
+private:
+	StudentNode *root;				// head of list
+
+	void deleteNodes(StudentNode *current)
 	{
 		if (current)
 		{
-			deleteNode(current->left);
-			deleteNode(current->right);
+			deleteNodes(current->left);
+			deleteNodes(current->right);
 			delete current;
 		}
 	}
