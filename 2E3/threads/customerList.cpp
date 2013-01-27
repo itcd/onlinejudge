@@ -37,3 +37,18 @@ void customerList::add(customer *data){	// add customer, modified, adding to the
                 p=p->left;
                 }
     }
+}
+
+customer* customerList::findcustomer (customer *cus,int customerid){
+	if(cus==NULL){
+		return NULL;
+	}
+	else if(cus->id==customerid){
+		cus->print();
+		return cus;
+	}
+	else if(customerid>cus->id){
+		return findcustomer(cus->right,customerid);
+	}
+	else return findcustomer(cus->left,customerid);
+}

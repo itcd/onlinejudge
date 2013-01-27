@@ -14,4 +14,5 @@ public:
 
 	void add(customer *data);
 	void print();
+	customer* findcustomer (customer *cus,int customerid);
 };
