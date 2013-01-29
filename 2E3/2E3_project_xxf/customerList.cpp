@@ -37,6 +37,14 @@ void customerList::add(customer *data){	// add customer, modified, adding to the
                 p=p->left;
                 }
     }
+	if(r>0)
+        {
+                pp->right=data;
+        }
+        else
+        {
+                pp->left=data;
+        }
 }
 
 customer* customerList::findcustomer (customer *cus,int customerid){
@@ -52,3 +60,4 @@ customer* customerList::findcustomer (customer *cus,int customerid){
 	}
 	else return findcustomer(cus->left,customerid);
 }
+

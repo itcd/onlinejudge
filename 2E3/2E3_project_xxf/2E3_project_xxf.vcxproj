@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C7B3362D-F29E-470F-A54A-A845106E3F50}</ProjectGuid>
+    <ProjectGuid>{86AA8FF7-674E-48D4-819F-3F63899BF317}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>threads</RootNamespace>
+    <RootNamespace>My2E3_project_xxf</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -76,10 +76,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="account.cpp" />
+    <ClCompile Include="accountList.cpp" />
     <ClCompile Include="customer.cpp" />
     <ClCompile Include="customerList.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="account.h" />
+    <ClInclude Include="accountList.h" />
     <ClInclude Include="customer.h" />
     <ClInclude Include="customerList.h" />
   </ItemGroup>

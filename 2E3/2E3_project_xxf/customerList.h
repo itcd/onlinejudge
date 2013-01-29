@@ -13,6 +13,6 @@ public:
 	~customerList();
 
 	void add(customer *data);
-	void print();
-	customer* findcustomer (customer *cus,int customerid);
+	customer *findcustomer (customer *cus,int customerid); //display insert customer
+	//void print();
 };

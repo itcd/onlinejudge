@@ -26,10 +26,6 @@ public:
 	// compare
 	int cmp(Customer *rhs)
 	{
-		//if (int r = lastName.compare(rhs->lastName))
-		//	return r;
-		//return firstName.compare(rhs->firstName);
-
 		if (customerID < rhs->customerID)
 			return -1;
 		else
@@ -42,7 +38,22 @@ public:
 	string to_string()
 	{
 		stringstream ss;
-		ss << customerID << "\t" << lastName << "\t" << firstName << "\t" << address <<endl;
+		ss << "Customer\t" << customerID << "\t" << lastName << "\t" << firstName << "\t" << address <<endl;
 		return ss.str();
+	}
+
+	void set_ID(int ID)
+	{
+		customerID = ID;
+	}
+
+	int get_value()
+	{
+		return 0; // no balance for customer
+	}
+
+	static bool has_balance()
+	{
+		return false;
 	}
 };

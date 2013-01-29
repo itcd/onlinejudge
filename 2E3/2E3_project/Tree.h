@@ -100,29 +100,61 @@ public:
 		}
 	}
 
-	T* FindStudent (string f, string l)
+	T* find (int id_wanted)
 	{
 		T s;
-		s.firstName = f;
-		s.lastName = l;
+		s.set_ID(id_wanted);
 		numberOfComparisons = 0;
-		return FindStudent(root, s);
+		return find_node(root, s);
 	}
 
-	T *FindStudent(T *current, T &target)
+	long int sum()
+	{
+		long int r = 0;
+		if(T::has_balance())
+			r = sum_recursive(root);
+		return r;
+	}
+
+private:
+	T *root;				// head of list
+
+	long int sum_recursive(T *p)
+	{
+		long int r = 0;
+		if (p)
+		{
+			r = p->get_value();
+			r += sum_recursive(p->left);
+			r += sum_recursive(p->right);
+		}
+		return r;
+	}
+
+	void deleteNodes(T *current)
+	{
+		if (current)
+		{
+			deleteNodes(current->left);
+			deleteNodes(current->right);
+			delete current;
+		}
+	}
+
+	T *find_node(T *current, T &target)
 	{
 		if (current)
 		{
 			numberOfComparisons++;
 			if (target.cmp(current) < 0)
 			{
-				return FindStudent(current->left, target);
+				return find_node(current->left, target);
 			} 
 			else
 			{
 				if (target.cmp(current) > 0)
 				{
-					return FindStudent(current->right, target);
+					return find_node(current->right, target);
 				} 
 				else
 				{
@@ -136,19 +168,6 @@ public:
 			cout<<"Not found!"<<endl;
 			cout << "Number Of Comparisons made:" << numberOfComparisons << endl;
 			return NULL;
-		}
-	}
-
-private:
-	T *root;				// head of list
-
-	void deleteNodes(T *current)
-	{
-		if (current)
-		{
-			deleteNodes(current->left);
-			deleteNodes(current->right);
-			delete current;
 		}
 	}
 };
