@@ -1,14 +1,13 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <thread> // C++11 (C++0x) thread library. Visual Studio 2010 or above is required.
 
 #include "Bank.h"
 
 using namespace std;
 
-//#include "windows.h" // CreateThread etc.
-//#define MAXTHREADS 16 // max number of threads
-//HANDLE threadH[MAXTHREADS]; // thread handles
+const int THREADS_FOR_EACH_BANK = 8;
 
 void main()
 {
@@ -17,21 +16,20 @@ void main()
 
 	const int N = 2;
 	Bank banks[N];
-	cout<<"In bank0, ";
+	banks[0].set_ID(0);
+	banks[1].set_ID(1);
 	banks[0].read_file("bank0.txt");
-	cout<<"\nIn bank1, ";
 	banks[1].read_file("bank1.txt");
 
+	//// write data to files
 	//banks[0].customer_tree.write("bank0.customer.txt");
 	//banks[0].account_tree.write("bank0.account.txt");
-
 	//banks[1].customer_tree.write("bank1.customer.txt");
 	//banks[1].account_tree.write("bank1.account.txt");
 
 	////////////////////////////////////////////////////////////////
 	// display information
 	////////////////////////////////////////////////////////////////
-	cout<<endl;
 
 	int bank_id, customer_id, account_id;
 
@@ -71,11 +69,21 @@ void main()
 	// transfer money
 	////////////////////////////////////////////////////////////////
 
-	cout<<endl<<"Transfer money between accounts."<<endl;
-	banks[0].transfer();
-	banks[0].transfer();
-	banks[1].transfer();
-	banks[1].transfer();
+	cout<<endl<<"Transfer money among accounts."<<endl;
+	cout<<endl<<"Starting threads..."<<endl;
+
+	std::vector<std::thread> threads;
+	for (int i=0; i<THREADS_FOR_EACH_BANK; i++)
+	{
+		threads.push_back(std::thread(&Bank::transfer, &banks[0]));
+		threads.push_back(std::thread(&Bank::transfer, &banks[1]));
+	}
+	for (int i=0; i<threads.size(); i++)
+	{
+		threads[i].join();
+	}
+
+	cout<<endl<<"All threads finished."<<endl;
 
 	cout<<"Bank balance"<<endl;
 	cout<<banks[0].account_tree.sum()<<endl;

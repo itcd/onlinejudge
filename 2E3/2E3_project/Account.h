@@ -4,8 +4,6 @@
 #include <sstream>
 using namespace std;
 
-//#include "windows.h"
-
 class Account
 {
 public:
@@ -28,12 +26,6 @@ public:
 		toAccount->balance += v; // credit toAccount
 	}
 
-	//void transfer_InterlockedExchangeAdd(int v, Account *toAccount)
-	//{
-	//	InterlockedExchangeAdd((LONG*) &balance, -v);
-	//	InterlockedExchangeAdd((LONG*) &toAccount->balance, v);
-	//}
-
 	// compare
 	int cmp(Account *rhs)
 	{
@@ -49,7 +41,7 @@ public:
 	string to_string()
 	{
 		stringstream ss;
-		ss << "Account\t" << accountID << "\t" << customerID << "\t" << balance <<endl;
+		ss << "(Account " << accountID << " " << customerID << " " << balance << ")" <<endl;
 		return ss.str();
 	}
 

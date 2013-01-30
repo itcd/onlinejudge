@@ -15,12 +15,18 @@ using namespace std;
 class Bank
 {
 public:
+	int ID;
 	Tree<Customer> customer_tree;
 	Tree<Account> account_tree;
 	vector<int> account_id_list;
 
 	Bank()
 	{
+	}
+
+	void set_ID(int id)
+	{
+		ID = id;
 	}
 
 	Bank(string filename)
@@ -32,6 +38,8 @@ public:
 	{
 		// clear account id list first
 		account_id_list.clear();
+
+		cout<<endl<<"In bank "<<ID<<", ";
 
 		//
 		// read in data from student.txt
@@ -82,6 +90,8 @@ public:
 			cout<<"Average customer balance is "<<sum/(double)customer_count<<endl;
 		else
 			cout<<"There is no customer in the bank."<<endl;
+
+		cout<<endl;
 	}
 
 	int random_account_id()
@@ -100,6 +110,8 @@ public:
 
 		Account * a1 = account_tree.find(id1);
 		Account * a2 = account_tree.find(id2);
-		a1->transfer(rand() % 1000, a2);
+		int v = rand() % 1000;
+		a1->transfer(v, a2);
+		cout<<endl<<"Thread: in bank "<<ID<<", "<<v<<" was transfered from "<<a1->to_string()<<" to "<<a2->to_string()<<endl;
 	}
 };
