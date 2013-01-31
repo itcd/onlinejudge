@@ -158,7 +158,9 @@ private:
 				} 
 				else
 				{
+#ifdef DEBUG_MESSAGE
 					cout << "Number Of Comparisons made:" << numberOfComparisons << endl;
+#endif // DEBUG_MESSAGE
 					return current;
 				}
 			}
@@ -166,7 +168,9 @@ private:
 		else
 		{
 			cout<<"Not found!"<<endl;
+#ifdef DEBUG_MESSAGE
 			cout << "Number Of Comparisons made:" << numberOfComparisons << endl;
+#endif // DEBUG_MESSAGE
 			return NULL;
 		}
 	}

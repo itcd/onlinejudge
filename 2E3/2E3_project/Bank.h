@@ -112,6 +112,8 @@ public:
 		Account * a2 = account_tree.find(id2);
 		int v = rand() % 1000;
 		a1->transfer(v, a2);
+#ifdef DEBUG_MESSAGE
 		cout<<endl<<"Thread: in bank "<<ID<<", "<<v<<" was transfered from "<<a1->to_string()<<" to "<<a2->to_string()<<endl;
+#endif // DEBUG_MESSAGE
 	}
 };
