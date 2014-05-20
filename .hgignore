@@ -6,27 +6,29 @@
 \.opensdf$
 \.pdb$
 ^Debug/
-^Release/
 /Debug/
+^Release/
 /Release/
 ^ipch/
 /ipch/
 ^bin/
-^obj/
 /bin/
+^obj/
 /obj/
 ^~
 /~
 
 \.aux$
 \.log$
-\.gz$
+\.synctex.gz$
 \.dvi$
 \.bbl$
 \.blg$
 \.ps$
 \.brf$
 \.lbl$
+\.out$
+\.toc$
 
 ^build/
 /build/
@@ -38,4 +40,11 @@
 \Thumbs.db$
 
 ^.gitignore$
-^.git$
+^.git/
+/.git/
+
+\sync.ffs_db$
+
+\.DS_Store$
+
+\.pyc$
